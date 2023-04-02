@@ -1,0 +1,1 @@
+# made this calculator to calculate my risks while trading on OTC markets using Quotex platform
