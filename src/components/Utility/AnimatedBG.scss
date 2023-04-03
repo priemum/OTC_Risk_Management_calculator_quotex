@@ -1,0 +1,116 @@
+.main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    // top: ;
+    left: 0;
+    right:0;
+    // transform: translate3d(-50%, -50%, 0);
+    background: linear-gradient(25deg,#9400d3,#0000ff,#e70a0a,#90ef15);
+  background-size: 240% 240%;
+  animation: gradient-animation 10s ease infinite;
+    
+    .section {
+      &_wave {
+        width: 111%;
+        height: 143%;
+        transform: rotate(-45deg);
+        
+      }
+      path{
+        stroke-width: 40 !important;
+      }
+    }
+  }
+  
+  .dash {
+    stroke-dasharray: 700;
+    animation: dash 90s linear infinite;
+    stroke: #FBC02E;
+    
+    //TODO: Random position, delay and color
+    
+    &_0 {
+      animation-delay: 0s;
+    }
+    
+    &_1 {
+      transform: translateY(100px);
+      animation-delay: 2.5s;
+    }
+    
+    &_2 {
+      transform: translateY(200px);
+      animation-delay: 6s;
+    }
+    
+    &_3 {
+      transform: translateY(300px);
+      animation-delay: 4s;
+    }
+    
+    &_4 {
+      transform: translateY(400px);
+      animation-delay: 1s;
+    }
+    
+    &_5 {
+      transform: translateY(500px);
+      animation-delay: 5s;
+    }
+    
+    &_6 {
+      transform: translateY(600px);
+      animation-delay: 3s;
+    }
+    
+    &_7 {
+      transform: translateY(700px);
+      animation-delay: 1.5s;
+    }
+    
+    &_8 {
+      transform: translateY(800px);
+      animation-delay: 5.5s;
+    }
+    
+    &_9 {
+      transform: translateY(900px);
+      animation-delay: 1s;
+    }
+  }
+  
+  @keyframes dash {
+    
+    0% {
+      stroke-dashoffset: 10;
+      stroke: #9400d3;
+    }
+    
+    50% {
+      stroke: #0000ff;
+    }
+    
+    100% {
+      stroke-dashoffset: 9800;
+      stroke: #e70a0a;
+    }
+  }
+
+  .gradient-background {
+    background: linear-gradient(25deg,darkviolet,blue,#e70a0a,#90ef15);
+    background-size: 240% 240%;
+    animation: gradient-animation 0.5s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
