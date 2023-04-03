@@ -11,12 +11,11 @@ import FormContainer from "./components/Containers/FormContainer/FormContainer";
 function App() {
 
   const [state,setState]=useState(null)
+  const [trades,setTrades]=useState([])
 
   const setData = (key,val)=>{
     setState((state)=>({...state,[`${key}`]:val}))
   }
-
-  const [trades,setTrades]=useState([])
 
   useEffect(()=>{
     const firstFeild = document.getElementById("initialCap")
@@ -41,46 +40,6 @@ function App() {
       </div>
       <div className="__container ">
         <FormContainer setData={setData} state={state}/>
-        {/* <motion.div
-          className="formContent"
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ type: "linear", stiffness: 400, damping: 100 }}
-          viewport={{ once: true }}
-        >
-          <div className="title">Calculate Your Risks</div>
-          <div className="form_container">
-            <form onSubmit={(e)=> {e.preventDefault();
-            console.log(state)}}>
-              <BaseInput
-                label="Initial Capital"
-                id="initialCap"
-                type="number"
-                onChange={(e)=>setData("initialCap",+e.target.value)}
-              />
-              <BaseInput
-                label="% Return"
-                id="perReturn"
-                type="number"
-                onChange={(e)=>setData("perReturn",+e.target.value)}
-              />
-              <BaseInput
-                label="% Cap. Risk"
-                id="perRisk"
-                type="number"
-                onChange={(e)=>setData("perRisk",+e.target.value)}
-              />
-              <BaseInput
-                label="% Of Stop Loss"
-                id="capSL"
-                type="number"
-                onChange={(e)=>setData("capSL",+e.target.value)}
-              />
-              <div className="submitBtn"><BaseBtn type="submit">Submit</BaseBtn></div>
-              
-            </form>
-          </div>
-        </motion.div> */}
       </div>
     </>
   );
