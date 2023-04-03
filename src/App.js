@@ -9,6 +9,7 @@ import TradeItem from "./components/UIelements/TradeItem/TradeItem";
 function App() {
 
   const [state,setState]=useState(null)
+  const [formIsFilled,setFormIsFilled]=useState(false)
   const [trades,setTrades]=useState([{amount:80.92,return:72.02,loss:false,profit:false}])
 
   const setData = (key,val)=>{
@@ -21,6 +22,16 @@ function App() {
       firstFeild.focus()
     }
   },[])
+  useEffect(()=>{
+    let IC = state?.initialCap || null;
+    let perReturn = state?.perReturn||null;
+    let perRisk = state?.perRisk||null;
+    let capSL = state?.capSL||null;
+    
+    if(IC && perReturn && perRisk && capSL){
+      setFormIsFilled(true)
+    }
+  },[state])
   console.log(setTrades)
 
   return (
@@ -39,14 +50,15 @@ function App() {
       </div>
       <div className="__container ">
         <FormContainer setData={setData} state={state}/>
-        <TradesContainer>
-          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
-          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
-          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
-          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
-          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
-          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
-        </TradesContainer>
+        {formIsFilled && <TradesContainer>
+          <TradeItem state={state} />
+          <TradeItem state={state} />
+          <TradeItem state={state} />
+          <TradeItem state={state} />
+          <TradeItem state={state} />
+          <TradeItem state={state} />
+        </TradesContainer>}
+        
       </div>
     </>
   );
