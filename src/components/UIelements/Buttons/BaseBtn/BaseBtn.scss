@@ -1,0 +1,11 @@
+button{
+    color:aliceblue;
+    background-color: rgba(97, 255, 202, 0.397);
+    border-radius: 4px;
+    padding: 0 5px;
+    font-weight: 700;
+
+    &:hover{
+        background-color: rgba(97, 255, 202, 0.7);
+    }
+}
