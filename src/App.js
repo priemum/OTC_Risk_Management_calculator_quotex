@@ -7,11 +7,13 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { percentages } from "./constants/percentageVars";
 import FormContainer from "./components/Containers/FormContainer/FormContainer";
+import TradesContainer from "./components/Containers/TradesContainer/TradesContainer";
+import TradeItem from "./components/UIelements/TradeItem/TradeItem";
 
 function App() {
 
   const [state,setState]=useState(null)
-  const [trades,setTrades]=useState([])
+  const [trades,setTrades]=useState([{amount:80.92,return:72.02,loss:false,profit:false}])
 
   const setData = (key,val)=>{
     setState((state)=>({...state,[`${key}`]:val}))
@@ -40,6 +42,14 @@ function App() {
       </div>
       <div className="__container ">
         <FormContainer setData={setData} state={state}/>
+        <TradesContainer>
+          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
+          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
+          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
+          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
+          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
+          <TradeItem amount={trades[0].amount} return={trades[0].return} loss={trades[0].loss} profit={trades[0].profit} />
+        </TradesContainer>
       </div>
     </>
   );

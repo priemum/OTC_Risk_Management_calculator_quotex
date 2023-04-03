@@ -1,0 +1,20 @@
+.app__tradeItem{
+    width: 98%;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.455);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .tradeItem__leftsec{
+        width:55%;
+
+    }
+    .tradeItem__rightsec{
+        width:35%;
+
+    }
+}
