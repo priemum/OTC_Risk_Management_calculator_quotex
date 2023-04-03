@@ -2,6 +2,7 @@ import AnimatedBG from "./components/Utility/AnimatedBG/AnimatedBG";
 import "./App.scss";
 import GoogleFontLoader from "react-google-font-loader";
 import BaseInput from "./components/UIelements/Inputs/BaseInput/BaseInput";
+import BaseBtn from "./components/UIelements/Buttons/BaseBtn/BaseBtn";
 
 function App() {
   return (
@@ -29,7 +30,16 @@ function App() {
       <div className="__container ">
         <div className="content">
           <div className="title">Calculate Your Risks</div>
-          <BaseInput label="Initial Capital" id="initialCap" type="number" />
+          <div className="form_container">
+            <form>
+              <BaseInput
+                label="Initial Capital"
+                id="initialCap"
+                type="number"
+              />
+              <BaseBtn>Submit</BaseBtn>
+            </form>
+          </div>
         </div>
       </div>
     </>
