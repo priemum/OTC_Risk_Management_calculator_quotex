@@ -11,7 +11,6 @@ const BaseInput = (props) => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         viewport={{ once: true }}
-        animate={{ stdDeviation: isSecFocused ? 0 : 2 }}
         className={`app__baseInput ${props.className && props.className}`}
     >
       <label htmlFor={props.id}>{props.label}</label>
