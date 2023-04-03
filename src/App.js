@@ -21,6 +21,7 @@ function App() {
       firstFeild.focus()
     }
   },[])
+  console.log(setTrades)
 
   return (
     <>
