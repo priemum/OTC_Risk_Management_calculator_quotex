@@ -1,10 +1,10 @@
 import "./BaseInput.scss";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+// import { useState } from "react";
 
 const BaseInput = (props) => {
-    const [isSecFocused, setIsSecFocused] = useState(false)
+    // const [isSecFocused, setIsSecFocused] = useState(false)
   return (
     <motion.div
         initial={{ opacity: 0, scale: 1.2 }}
@@ -19,7 +19,7 @@ const BaseInput = (props) => {
         id={props.id}
         onClick={props.onClick}
         onChange={props.onChange}
-        whileFocus={()=>setIsSecFocused(true)}
+        // whileFocus={()=>setIsSecFocused(true)}
         className={` ${props.btnClass}`}
       ></motion.input>
     </motion.div>
