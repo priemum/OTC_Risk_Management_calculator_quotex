@@ -7,6 +7,8 @@ const BaseInput=(props)=>{
             <input
               type={props.type}
               id={props.id}
+              onClick={props.onClick}
+              onChange={props.onChange}
               className={` ${props.btnClass}`}
             ></input>
         </div>
