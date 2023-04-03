@@ -15,6 +15,10 @@ function App() {
             font: "Roboto Mono",
             weights: [400, 700],
           },
+          {
+            font: "Signika",
+            weights: [300, 400, 500, 600],
+          },
         ]}
         subsets={["cyrillic-ext", "greek"]}
       />
@@ -23,8 +27,15 @@ function App() {
       </div>
       <div className="__container ">
         <div className="content">
-          <label style={{fontFamily:"Roboto Mono"}} htmlFor="initialCap">Initial Capital</label>
-          <input type="number" id="initialCap" className="" step="none"></input>
+          <div className="input_compo">
+            <label htmlFor="initialCap">Initial Capital</label>
+            <input
+              type="number"
+              id="initialCap"
+              className=""
+              step="none"
+            ></input>
+          </div>
         </div>
       </div>
     </>

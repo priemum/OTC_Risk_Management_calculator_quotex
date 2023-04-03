@@ -24,6 +24,11 @@
     display:flex;
     justify-content: center;
     align-items: center;
+
+    *{
+        font-family: "Signika";
+        font-weight: 300;
+    }
 }
 
 .content{
