@@ -1,13 +1,13 @@
 .app__tradeItem {
-  width: 98%;
-  border-radius: 4px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.455);
-  color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+    width: 98%;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.455);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
   .title {
     font-size: medium;
@@ -17,12 +17,18 @@
 
   .tradeItem__leftsec {
     width: 55%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
 
     .leftsec__amount {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-direction: row;
+      background-color: rgba(255, 255, 255, 0.291);
+        padding: 4px;
+        border-radius: 8px;
 
       .amount{
         background-color: rgb(255, 255, 255);
@@ -34,5 +40,31 @@
   }
   .tradeItem__rightsec {
     width: 35%;
+
+    &>div{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 9px;
+    background-color: rgba(255, 255, 255, 0.291);
+    padding: 4px;
+    border-radius: 8px;
+
+        button.profit{
+            background-color: rgba(138, 251, 107, 0.904) !important;
+            width:80%;
+            font-weight: 800;
+        }
+        button.loss{
+            background-color: rgba(237, 100, 87, 0.872) !important;
+            width:80%;
+            font-weight: 800;
+        }
+    }
+
+    .result{
+        text-align: center;
+    }
   }
 }

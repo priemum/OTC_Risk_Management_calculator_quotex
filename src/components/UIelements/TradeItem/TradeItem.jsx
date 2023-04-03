@@ -1,5 +1,6 @@
 import "./TradeItem.scss";
 import { motion } from "framer-motion";
+import BaseBtn from "../Buttons/BaseBtn/BaseBtn";
 
 const TradeItem = (props) => {
   return (
@@ -11,11 +12,20 @@ const TradeItem = (props) => {
     >
       <div className="tradeItem__leftsec">
         <div className="leftsec__amount">
-         <div className="title"> Trade Amount : </div><div className="title amount">{props.amount}</div>
+          <div className="title"> Trade Amount : </div>
+          <div className="title amount">{props.amount}</div>
+        </div>
+        <div className="leftsec__amount">
+          <div className="title"> Return : </div>
+          <div className="title amount">{props.return}</div>
         </div>
       </div>
       <div className="tradeItem__rightsec">
-        <div className="title">Result</div>
+        <div>
+          <div className="title result">Choose Result</div>
+          <BaseBtn className="profit" type="submit">PROFIT</BaseBtn>
+          <BaseBtn className="loss" type="submit">LOSS</BaseBtn>
+        </div>
       </div>
     </motion.div>
   );
