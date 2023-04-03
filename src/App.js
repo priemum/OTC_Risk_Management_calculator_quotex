@@ -3,7 +3,7 @@ import "./App.scss";
 import GoogleFontLoader from "react-google-font-loader";
 import BaseInput from "./components/UIelements/Inputs/BaseInput/BaseInput";
 import BaseBtn from "./components/UIelements/Buttons/BaseBtn/BaseBtn";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 function App() {
   return (
@@ -29,17 +29,34 @@ function App() {
         <AnimatedBG />
       </div>
       <div className="__container ">
-      
-        <motion.div className="content"  initial={{ opacity: 0 ,scale:0}}
-  whileInView={{ opacity: 1 ,scale:1}}
-  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-  viewport={{ once: true }}>
+        <motion.div
+          className="content"
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ type: "linear", stiffness: 400, damping: 100 }}
+          viewport={{ once: true }}
+        >
           <div className="title">Calculate Your Risks</div>
           <div className="form_container">
             <form>
               <BaseInput
                 label="Initial Capital"
                 id="initialCap"
+                type="number"
+              />
+              <BaseInput
+                label="% Return"
+                id="perReturn"
+                type="number"
+              />
+              <BaseInput
+                label="% Cap. Risk"
+                id="perRisk"
+                type="number"
+              />
+              <BaseInput
+                label="% Of Stop Loss"
+                id="capSL"
                 type="number"
               />
               <BaseBtn>Submit</BaseBtn>
