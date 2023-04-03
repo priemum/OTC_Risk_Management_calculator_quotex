@@ -1,12 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import AnimatedBG from './components/Utility/AnimatedBG';
+import './App.scss';
 
 function App() {
   return (
-    <div className=" w-full !h-full bg-neutral-200">
-      <label htmlFor='initialCap'>Initial Capital</label>
-       <input type="number" id="initialCap" className='bg-green-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500'></input>
-    </div>
+    <>
+    <div className="bg"><AnimatedBG/></div>
+    <div className="__container ">
+      <div className="content"><label htmlFor='initialCap'>Initial Capital</label>
+       <input type="number" id="initialCap" className='' step="none"></input></div>
+      
+    </div></>
   );
 }
 
