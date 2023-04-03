@@ -38,13 +38,13 @@
     border: 2px solid hsla(0, 0%, 100%, 0.31);
     background: rgba(0, 0, 0, 0.4);
     border-radius: 8px;
-    margin: auto;
     padding: 27px;
     top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 141px;
 
     @media(max-width:768px){
         width:90%;

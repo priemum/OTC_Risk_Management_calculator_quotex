@@ -1,20 +1,38 @@
-.app__tradeItem{
-    width: 98%;
-    border-radius: 4px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.455);
+.app__tradeItem {
+  width: 98%;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.455);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-size: medium;
+    font-weight: 800;
     color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  }
 
-    .tradeItem__leftsec{
-        width:55%;
+  .tradeItem__leftsec {
+    width: 55%;
 
+    .leftsec__amount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      .amount{
+        background-color: rgb(255, 255, 255);
+        color:rgba(90, 90, 90, 0.963);
+        border-radius:5px;
+        padding:5px 10px;
+      }
     }
-    .tradeItem__rightsec{
-        width:35%;
-
-    }
+  }
+  .tradeItem__rightsec {
+    width: 35%;
+  }
 }
