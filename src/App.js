@@ -28,6 +28,7 @@ function App() {
       </div>
       <div className="__container ">
         <div className="content">
+          <div className="title">Calculate Your Risks</div>
           <BaseInput label="Initial Capital" id="initialCap" type="number" />
         </div>
       </div>
