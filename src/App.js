@@ -1,6 +1,7 @@
-import AnimatedBG from "./components/Utility/AnimatedBG";
+import AnimatedBG from "./components/Utility/AnimatedBG/AnimatedBG";
 import "./App.scss";
 import GoogleFontLoader from "react-google-font-loader";
+import BaseInput from "./components/UIelements/Inputs/BaseInput/BaseInput";
 
 function App() {
   return (
@@ -27,15 +28,7 @@ function App() {
       </div>
       <div className="__container ">
         <div className="content">
-          <div className="input_compo">
-            <label htmlFor="initialCap">Initial Capital</label>
-            <input
-              type="number"
-              id="initialCap"
-              className=""
-              step="none"
-            ></input>
-          </div>
+          <BaseInput label="Initial Capital" id="initialCap" type="number" />
         </div>
       </div>
     </>
