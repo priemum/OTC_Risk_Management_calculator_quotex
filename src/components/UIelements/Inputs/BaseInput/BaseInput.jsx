@@ -19,6 +19,7 @@ const BaseInput = (props) => {
         id={props.id}
         onClick={props.onClick}
         onChange={props.onChange}
+        required={props.required}
         // whileFocus={()=>setIsSecFocused(true)}
         className={` ${props.btnClass}`}
       ></motion.input>

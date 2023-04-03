@@ -22,24 +22,28 @@ const FormContainer=(props)=>{
                 label="Initial Capital"
                 id="initialCap"
                 type="number"
+                required
                 onChange={(e)=>props.setData("initialCap",+e.target.value)}
               />
               <BaseInput
                 label="% Return"
                 id="perReturn"
                 type="number"
+                required
                 onChange={(e)=>props.setData("perReturn",+e.target.value)}
               />
               <BaseInput
                 label="% Cap. Risk"
                 id="perRisk"
                 type="number"
+                required
                 onChange={(e)=>props.setData("perRisk",+e.target.value)}
               />
               <BaseInput
                 label="% Of Stop Loss"
                 id="capSL"
                 type="number"
+                required
                 onChange={(e)=>props.setData("capSL",+e.target.value)}
               />
               <div className="submitBtn"><BaseBtn type="submit">Submit</BaseBtn></div>
