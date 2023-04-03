@@ -32,9 +32,17 @@
 }
 
 .content{
-    border: 1px solid hsla(0,0%,100%,.18);
+    border: 2px solid hsl(0deg 0% 100% / 31%);
     background: rgba(0,0,0,.25);
     border-radius: 8px;
     margin: auto;
     padding: 32px;
+    top: 28px;
+    position: absolute;
+
+    .title{
+        font-size: x-large;
+        font-weight: 800;
+        color:white;
+    }
 }
