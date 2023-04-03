@@ -4,8 +4,16 @@ import GoogleFontLoader from "react-google-font-loader";
 import BaseInput from "./components/UIelements/Inputs/BaseInput/BaseInput";
 import BaseBtn from "./components/UIelements/Buttons/BaseBtn/BaseBtn";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 function App() {
+
+  useEffect(()=>{
+    const firstFeild = document.getElementById("initialCap")
+    if(firstFeild){
+      firstFeild.focus()
+    }
+  },[])
   return (
     <>
       <GoogleFontLoader
@@ -59,7 +67,8 @@ function App() {
                 id="capSL"
                 type="number"
               />
-              <BaseBtn>Submit</BaseBtn>
+              <div className="submitBtn"><BaseBtn type="submit">Submit</BaseBtn></div>
+              
             </form>
           </div>
         </motion.div>

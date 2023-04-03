@@ -50,4 +50,27 @@
         font-weight: 800;
         color:white;
     }
+    form{
+        display: flex;
+        width: 500px;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .app__baseInput{
+            width:46%;
+            align-items:normal;
+            background-color: rgba(0, 0, 0, 0.455);
+            border-radius: 5px;
+        }
+        .submitBtn{
+            width:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button[type="submit"]{
+            width:200px
+        }
+    }
 }
