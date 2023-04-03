@@ -32,6 +32,7 @@ function App() {
       
         <motion.div className="content"  initial={{ opacity: 0 ,scale:0}}
   whileInView={{ opacity: 1 ,scale:1}}
+  transition={{ type: "spring", stiffness: 400, damping: 10 }}
   viewport={{ once: true }}>
           <div className="title">Calculate Your Risks</div>
           <div className="form_container">
