@@ -3,6 +3,7 @@ import "./App.scss";
 import GoogleFontLoader from "react-google-font-loader";
 import BaseInput from "./components/UIelements/Inputs/BaseInput/BaseInput";
 import BaseBtn from "./components/UIelements/Buttons/BaseBtn/BaseBtn";
+import { motion } from "framer-motion"
 
 function App() {
   return (
@@ -28,7 +29,10 @@ function App() {
         <AnimatedBG />
       </div>
       <div className="__container ">
-        <div className="content">
+      
+        <motion.div className="content"  initial={{ opacity: 0 ,scale:0}}
+  whileInView={{ opacity: 1 ,scale:1}}
+  viewport={{ once: true }}>
           <div className="title">Calculate Your Risks</div>
           <div className="form_container">
             <form>
@@ -40,7 +44,7 @@ function App() {
               <BaseBtn>Submit</BaseBtn>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );
