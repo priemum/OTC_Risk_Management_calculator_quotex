@@ -5,9 +5,9 @@ import BaseBtn from "../Buttons/BaseBtn/BaseBtn";
 const TradeItem = (props) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 1.2 }}
+      initial={{ opacity: 0, scale: 1.05 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      transition={{ type: "spring", stiffness: 300, damping: 10 }}
       className={`app__tradeItem`}
     >
       <div className="tradeItem__leftsec">

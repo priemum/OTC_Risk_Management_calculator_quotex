@@ -30,6 +30,8 @@ const FormContainer = (props) => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ type: "linear", stiffness: 400, damping: 100 }}
         viewport={{ once: true }}
+        // exit={props.exit}
+        key={props.key}
         ref={props.ref}
       >
         <div className="title">Calculate Your Risks</div>

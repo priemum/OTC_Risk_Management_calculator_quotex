@@ -37,11 +37,13 @@ function App() {
       firstFeild.focus();
     }
   }, []);
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //       setMustScale(!mustScale)
-  //     }, 3000);
-  // }, [mustScale]);
+  useEffect(() => {
+    if (mustScale) {
+      setTimeout(() => {
+        setMustScale(false);
+      }, 150);
+    }
+  }, [mustScale]);
   useEffect(() => {
     let IC = state?.initialCap || null;
     let perReturn = state?.perReturn || null;
@@ -51,9 +53,6 @@ function App() {
     if (IC && perReturn && perRisk && capSL) {
       let IC = state.initialCap;
       let tradeAmount = IC * percentages.profitPer;
-      let returnAmount =
-        tradeAmount *
-        (state.perReturn > 1 ? state.perReturn / 100 : state.perReturn);
 
       setFormIsFilled(true);
       if (trades.length === 0) {
@@ -136,25 +135,26 @@ function App() {
           {show ? (
             <FormContainer
               ref={ref}
+              key="1234"
               setData={setData}
               setState={setState}
               state={state}
               setShow={setShow}
               show={show}
+              exit={{y:"50%",opacity:0,transition:{duration:"5s",ease:"easeOut"}}}
             />
           ) : null}
         </AnimatePresence>
         {formIsFilled && trades.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ type: "linear", stiffness: 400, damping: 100 }}
-            animate={{ scale: mustScale ? 3 : 1 }}
-            onClick={()=>setMustScale(!mustScale)}
-            className="Cap_head"
-          >
-            {state?.initialCap?.toFixed(2)}
-          </motion.div>
+          <div className="headContainer">
+            <motion.div
+              className="Cap_head"
+              animate={{ scale: mustScale ? 1.5 : 1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 100 }}
+            >
+              {state?.initialCap?.toFixed(2)}
+            </motion.div>
+          </div>
         )}
         {formIsFilled && trades.length > 0 && (
           <TradesContainer>
