@@ -1,17 +1,30 @@
 import AnimatedBG from "./components/Utility/AnimatedBG/AnimatedBG";
 import "./App.scss";
 import GoogleFontLoader from "react-google-font-loader";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FormContainer from "./components/Containers/FormContainer/FormContainer";
 import TradesContainer from "./components/Containers/TradesContainer/TradesContainer";
 import TradeItem from "./components/UIelements/TradeItem/TradeItem";
 import percentages from "./constants/percentageVars";
+import { AnimatePresence, usePresence } from "framer-motion";
+import { gsap } from "gsap";
 
 function App() {
   const [state, setState] = useState(null);
+  const [show, setShow] = useState(true);
   const [formIsFilled, setFormIsFilled] = useState(false);
   const [trades, setTrades] = useState([]);
+  const ref = useRef(null);
+  const [isPresent, safeToRemove] = usePresence();
 
+  useEffect(() => {
+    if (!isPresent) {
+      gsap.to(ref.current, {
+        opacity: 0,
+        onComplete: () => safeToRemove?.()
+      });
+    }
+  }, [isPresent, safeToRemove]);
   const setData = (key, val) => {
     setState((state) => ({ ...state, [`${key}`]: val }));
   };
@@ -73,7 +86,9 @@ function App() {
     let finalTradeState = [...JSON.parse(JSON.stringify(tradesState2))]
 
     let lastTrade = finalTradeState[finalTradeState.length-1];
-    lastTrade.returnAmount = +lastTrade.amount* (percentages.profitPer+1)
+    lastTrade.returnAmount = +lastTrade.amount *
+    (state.perReturn > 1 ? state.perReturn / 100 : state.perReturn);
+    
     state.initialCap = state.initialCap + lastTrade.amount
     let IC = state?.initialCap || null;
     let tradeAmount = IC * (percentages.profitPer+1);
@@ -97,7 +112,8 @@ function App() {
         <AnimatedBG />
       </div>
       <div className="__container ">
-        <FormContainer setData={setData} setState={setState} state={state} />
+      <AnimatePresence>{show ? <FormContainer ref={ref} setData={setData} setState={setState} state={state} setShow={setShow} show={show} /> : null}</AnimatePresence>
+        
         {formIsFilled && trades.length > 0 && (
           <TradesContainer>
             {trades.map((trade, index) => {

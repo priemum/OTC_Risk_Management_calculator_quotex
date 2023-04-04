@@ -30,6 +30,7 @@ const FormContainer = (props) => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ type: "linear", stiffness: 400, damping: 100 }}
         viewport={{ once: true }}
+        ref={props.ref}
       >
         <div className="title">Calculate Your Risks</div>
         <div className="form_container">
@@ -37,6 +38,7 @@ const FormContainer = (props) => {
             onSubmit={(e) => {
               e.preventDefault();
               props.setState({ ...inputData });
+              props.setShow((prevState)=>!prevState)
             }}
           >
             <BaseInput

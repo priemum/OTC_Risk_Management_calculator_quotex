@@ -18,6 +18,14 @@
       path{
         stroke-width: 40 !important;
       }
+      @media(max-width:768px){
+        width: 331%;
+        height: 108%;
+        transform: rotate(-45deg);
+        position: relative;
+        left: -212px;
+        top: -162px;
+      }
     }
   }
   
