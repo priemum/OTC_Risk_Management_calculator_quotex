@@ -35,6 +35,18 @@
         font-family: "Signika";
         font-weight: 300;
     }
+
+    .Cap_head{
+        font-size: 40px;
+    font-weight: bold;
+    color: #ffffffc2;
+    background-color: rgba(0, 0, 0, 0.455);
+    padding: 8px 26px;
+    border-radius: 24px;
+    /* filter: blur(0px); */
+    border: solid 2px #a0a0a0f0;
+    margin-top:30px;
+    }
 }
 
 .formContent{

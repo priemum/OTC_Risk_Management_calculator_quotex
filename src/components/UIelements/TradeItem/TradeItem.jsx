@@ -1,14 +1,8 @@
 import "./TradeItem.scss";
 import { motion } from "framer-motion";
 import BaseBtn from "../Buttons/BaseBtn/BaseBtn";
-import { useEffect} from "react";
 
 const TradeItem = (props) => {
-  useEffect(()=>{
-    console.log(props.trade.loss);
-    console.log(props.trade.profit);
-
-  },[props.trade.loss,props.trade.profit])
   return (
     <motion.div
       initial={{ opacity: 0, scale: 1.2 }}
@@ -19,18 +13,48 @@ const TradeItem = (props) => {
       <div className="tradeItem__leftsec">
         <div className="leftsec__amount">
           <div className="title"> Trade Amount : </div>
-          <div className="title amount">{props?.trade?.amount?.toFixed(2)  || 0}</div>
+          <div className="title amount">
+            {props?.trade?.amount?.toFixed(2) || 0}
+          </div>
         </div>
         <div className="leftsec__amount">
           <div className="title"> Return : </div>
-          <div className={`title amount ${props.trade.loss? 'doneLoss':"doneProfit"}`}>{props.trade.loss?"":"+"}{props?.trade?.returnAmount?.toFixed(2)  || 0}</div>
+          <div
+            className={`title amount ${
+              props.trade.nill
+                ? ""
+                : props.trade.loss
+                ? "doneLoss"
+                : "doneProfit"
+            }`}
+          >
+            {props.trade.loss ? "-" : "+"}
+            {props?.trade?.returnAmount?.toFixed(2) || 0}
+          </div>
         </div>
       </div>
       <div className="tradeItem__rightsec">
         <div>
           <div className="title result">Choose Result</div>
-          <BaseBtn className="profit" onClick={()=>props.markProfit(props.index)} type="submit">PROFIT</BaseBtn>
-          <BaseBtn className="loss" onClick={()=>props.markLoss(props.index)} type="submit">LOSS</BaseBtn>
+          <BaseBtn
+            className="profit"
+            disabled={!props.trade.nill}
+            onClick={() => {
+              props.markProfit(props.index);
+              props.setMustScale(true);
+            }}
+            type="submit"
+          >
+            PROFIT
+          </BaseBtn>
+          <BaseBtn
+            className="loss"
+            disabled={!props.trade.nill}
+            onClick={() => props.markLoss(props.index)}
+            type="submit"
+          >
+            LOSS
+          </BaseBtn>
         </div>
       </div>
     </motion.div>

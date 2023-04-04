@@ -9,6 +9,7 @@ const BaseBtn = (props) => {
         onClick={props.onClick}
         styles={props.styles}
         type={props.type}
+        disabled={props.disabled}
         className={` app__baseBtn ${props.className}`}
     >
       {props.children}
