@@ -60,6 +60,8 @@ function App() {
     lastTrade.returnAmount = -lastTrade.amount
     let newTrade = {amount:lastTrade.amount*percentages.lossPer,return:0,loss:false,profit:false}
     finalTradeState.push(newTrade)
+
+    state.initialCap = state.initialCap - lastTrade.amount
     
     setTrades([...finalTradeState])
   }
@@ -69,6 +71,18 @@ function App() {
     let tradesState2 = [...JSON.parse(JSON.stringify(tradesState1))]
     tradesState2[index].profit = true;
     let finalTradeState = [...JSON.parse(JSON.stringify(tradesState2))]
+
+    let lastTrade = finalTradeState[finalTradeState.length-1];
+    lastTrade.returnAmount = +lastTrade.amount* (percentages.profitPer+1)
+    debugger
+    state.initialCap = state.initialCap + lastTrade.amount
+    let IC = state?.initialCap || null;
+    let tradeAmount = IC * (percentages.profitPer+1);
+    let newTrade = {amount:tradeAmount*percentages.profitPer,return:0,loss:false,profit:false}
+    finalTradeState.push(newTrade)
+
+    debugger
+
     setTrades([...finalTradeState])
   }
   return (
