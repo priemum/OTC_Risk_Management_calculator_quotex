@@ -74,14 +74,11 @@ function App() {
 
     let lastTrade = finalTradeState[finalTradeState.length-1];
     lastTrade.returnAmount = +lastTrade.amount* (percentages.profitPer+1)
-    debugger
     state.initialCap = state.initialCap + lastTrade.amount
     let IC = state?.initialCap || null;
     let tradeAmount = IC * (percentages.profitPer+1);
     let newTrade = {amount:tradeAmount*percentages.profitPer,return:0,loss:false,profit:false}
     finalTradeState.push(newTrade)
-
-    debugger
 
     setTrades([...finalTradeState])
   }
