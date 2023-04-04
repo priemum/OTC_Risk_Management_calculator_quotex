@@ -61,7 +61,7 @@ function App() {
         ]);
       }
     }
-  }, [state]);
+  }, [state, trades.length]);
 
   const markLoss=(index)=>{
     let tradesState1 = [...trades];

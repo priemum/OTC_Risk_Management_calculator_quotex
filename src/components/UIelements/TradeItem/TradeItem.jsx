@@ -1,8 +1,7 @@
 import "./TradeItem.scss";
 import { motion } from "framer-motion";
 import BaseBtn from "../Buttons/BaseBtn/BaseBtn";
-import { useEffect, useState } from "react";
-import percentages from '../../../constants/percentageVars'
+import { useEffect} from "react";
 
 const TradeItem = (props) => {
   useEffect(()=>{
