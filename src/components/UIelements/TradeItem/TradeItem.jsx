@@ -15,11 +15,11 @@ const TradeItem = (props) => {
       <div className="tradeItem__leftsec">
         <div className="leftsec__amount">
           <div className="title"> Trade Amount : </div>
-          <div className="title amount">{props?.trade?.amount || 0}</div>
+          <div className="title amount">{props?.trade?.amount?.toFixed(2)  || 0}</div>
         </div>
         <div className="leftsec__amount">
           <div className="title"> Return : </div>
-          <div className="title amount">{props?.trade?.returnAmount || 0}</div>
+          <div className="title amount">{props?.trade?.returnAmount?.toFixed(2)  || 0}</div>
         </div>
       </div>
       <div className="tradeItem__rightsec">
