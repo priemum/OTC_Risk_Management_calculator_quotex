@@ -1,4 +1,4 @@
-@import url('../../../../../static/global.scss');
+@import './../../../../static/global.scss';
 
 .app__baseInput {
   width: 100%;
@@ -15,11 +15,11 @@
   input {
     border-radius: 4px;
     padding: 0 5px;
-    background-color: rgba(255, 255, 255, 0.291);
+    background-color: $white-blur4;
     color:white;
 
     &:focus {
-      background-color: rgba(255, 255, 255, 0.484);
+      background-color: $white-blur6;
       border:none;
       outline:none;
     }

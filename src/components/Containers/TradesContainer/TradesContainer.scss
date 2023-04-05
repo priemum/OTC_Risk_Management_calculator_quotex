@@ -1,9 +1,9 @@
-@import url('../../../../static/global.scss');
+@import './../../../static/global.scss';
 
 .app__tradesContainer{
     width: 554px;
     border: 2px solid hsla(0, 0%, 100%, 0.31);
-    background: rgba(0, 0, 0, 0.4);
+    background: $black-blur6;
     border-radius: 8px;
     padding: 27px 10px;
     display: flex;
