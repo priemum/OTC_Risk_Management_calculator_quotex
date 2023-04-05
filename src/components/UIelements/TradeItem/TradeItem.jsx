@@ -19,7 +19,10 @@ const TradeItem = (props) => {
         </div>
         <div className="leftsec__amount">
           <div className="title"> Return : </div>
-          <div
+          <motion.div
+           initial={{ opacity: 0, scale: 2, x:-100 }}
+           whileInView={{ opacity: 1, scale: 1 , x:0}}
+           transition={{ type: "linear", stiffness: 300, damping: 10 }}
             className={`title amount ${
               props.trade.nill
                 ? ""
@@ -27,10 +30,11 @@ const TradeItem = (props) => {
                 ? "doneLoss"
                 : "doneProfit"
             }`}
+            viewport={{once:true}}
           >
             {props.trade.loss ? "-" : "+"}
             {props?.trade?.returnAmount?.toFixed(2) || 0}
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className="tradeItem__rightsec">
