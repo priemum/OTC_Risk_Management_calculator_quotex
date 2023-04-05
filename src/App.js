@@ -16,8 +16,31 @@ function App() {
   const [formIsFilled, setFormIsFilled] = useState(false);
   const [trades, setTrades] = useState([]);
   const [mustScale, setMustScale] = useState(false);
+  const [totProfit, setTotProfit] = useState(0);
+  const [totLoss, setTotLoss] = useState(0);
   const ref = useRef(null);
   const [isPresent, safeToRemove] = usePresence();
+
+  const setData = (key, val) => {
+    setState((state) => ({ ...state, [`${key}`]: val }));
+  };
+
+  useEffect(()=>{
+    if(trades.length>0){
+      let totloss = 0;
+      let totprofit = 0;
+      trades.forEach((trade)=>{
+        if(trade.loss && !trade.nill){
+          totloss = totloss+trade.amount;
+          setTotLoss(totloss)
+        }
+        if(!trade.loss && !trade.nill){
+          totprofit = (totprofit + trade.returnAmount)-totloss
+          setTotProfit(totprofit)
+        }
+      })
+    }
+  },[trades])
 
   useEffect(() => {
     if (!isPresent) {
@@ -27,9 +50,6 @@ function App() {
       });
     }
   }, [isPresent, safeToRemove]);
-  const setData = (key, val) => {
-    setState((state) => ({ ...state, [`${key}`]: val }));
-  };
 
   useEffect(() => {
     const firstFeild = document.getElementById("initialCap");
@@ -152,7 +172,21 @@ function App() {
               animate={{ scale: mustScale ? 1.5 : 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 100 }}
             >
+              {totProfit?.toFixed(2)}
+            </motion.div>
+            <motion.div
+              className="Cap_head"
+              animate={{ scale: mustScale ? 1.5 : 1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 100 }}
+            >
               {state?.initialCap?.toFixed(2)}
+            </motion.div>
+            <motion.div
+              className="Cap_head"
+              animate={{ scale: mustScale ? 1.5 : 1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 100 }}
+            >
+              {totLoss?.toFixed(2)}
             </motion.div>
           </div>
         )}
