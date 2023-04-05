@@ -3,15 +3,15 @@
 .app__tradesContainer{
     width: 554px;
     border: 2px solid hsla(0, 0%, 100%, 0.31);
-    background: $black-blur6;
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 8px;
     padding: 27px 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: flex-start;
-    top: 30px;
-    position: relative;
+    top: 142px;
+    position: absolute;
     row-gap: 20px;
 
     @media(max-width:768px){

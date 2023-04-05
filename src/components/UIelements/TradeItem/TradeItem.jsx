@@ -1,14 +1,24 @@
 import "./TradeItem.scss";
 import { motion } from "framer-motion";
 import BaseBtn from "../Buttons/BaseBtn/BaseBtn";
+import { useRef } from "react";
 
 const TradeItem = (props) => {
+  const ref = useRef(null);
+
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     ref.current.scrollIntoView();
+  //   }
+  // }, []);
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 1.05 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ type: "spring", stiffness: 300, damping: 10 }}
+      initial={{ opacity: 0, scale: 1.05 ,y:-300}}
+      whileInView={{ opacity: 1, scale: 1 ,y:0}}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className={`app__tradeItem`}
+      viewport={{once:true}}
+      ref={ref}
     >
       <div className="tradeItem__leftsec">
         <div className="leftsec__amount">
