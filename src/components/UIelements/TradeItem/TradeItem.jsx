@@ -13,7 +13,7 @@ const TradeItem = (props) => {
   // }, []);
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 1.05 ,y:-300}}
+      initial={{ opacity: 0, scale: 4 ,y:-300}}
       whileInView={{ opacity: 1, scale: 1 ,y:0}}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className={`app__tradeItem`}
