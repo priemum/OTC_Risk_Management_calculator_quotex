@@ -56,6 +56,18 @@
     position: sticky;
     z-index: 1;
     width: fit-content;
+    &:nth-child(1){
+      background-color:#88ef6fc3;
+      color:slategray
+    }
+    &:last-child{
+      background-color: rgb(223 102 92);
+    }
+    @media(max-width:768px){
+      font-size: 16px;
+
+      
+    }
 }
 }
 
