@@ -20,7 +20,7 @@ const TradeItem = (props) => {
       viewport={{once:true}}
       ref={ref}
     >
-      <div className="tradeItem__leftsec">
+      <div className={`tradeItem__leftsec ${!props.trade.nill && "fullWidth"}`}>
         <div className="leftsec__amount">
           <div className="title"> Trade Amount : </div>
           <div className="title amount">
@@ -47,7 +47,7 @@ const TradeItem = (props) => {
           </motion.div>
         </div>
       </div>
-      <div className="tradeItem__rightsec">
+      <div className={`tradeItem__rightsec ${!props.trade.nill && "hide"}`}>
         <div>
           <div className="title result">Choose Result</div>
           <BaseBtn
