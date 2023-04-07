@@ -136,6 +136,15 @@ function App() {
 
     setTrades([...finalTradeState]);
   };
+
+ const getKValue=(num)=>{
+  if(+num<1000){
+    return num;
+  }
+  if(+num>=1000){
+    return (num/1000).toFixed(2)
+  }
+ }
   return (
     <>
       <GoogleFontLoader
@@ -172,21 +181,21 @@ function App() {
               animate={{ scale: mustScale ? 1.5 : 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 100 }}
             >
-              {totProfit?.toFixed(2)}
+              {getKValue(totProfit)}K
             </motion.div>
             <motion.div
               className="Cap_head"
               animate={{ scale: mustScale ? 1.5 : 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 100 }}
             >
-              {state?.initialCap?.toFixed(2)}
+              {getKValue(state?.initialCap)}K
             </motion.div>
             <motion.div
               className="Cap_head"
               animate={{ scale: mustScale ? 1.5 : 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 100 }}
             >
-              {totLoss?.toFixed(2)}
+              {getKValue(totLoss)}K
             </motion.div>
           </div>
         )}
@@ -201,6 +210,7 @@ function App() {
                   markLoss={markLoss}
                   markProfit={markProfit}
                   setMustScale={setMustScale}
+                  getKValue={getKValue}
                 />
               );
             })}
