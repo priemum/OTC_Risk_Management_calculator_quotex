@@ -16,7 +16,7 @@ const TradeItem = (props) => {
       initial={{ opacity: 0, scale: 4 ,y:-300}}
       whileInView={{ opacity: 1, scale: 1 ,y:0}}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={`app__tradeItem`}
+      className={`app__tradeItem ${props.trade.nill ? "" :props.trade.loss ? "lossOutline" : "profitOutline"}`}
       viewport={{once:true}}
       ref={ref}
     >
