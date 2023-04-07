@@ -24,7 +24,7 @@ const TradeItem = (props) => {
         <div className="leftsec__amount">
           <div className="title"> Trade Amount : </div>
           <div className="title amount">
-            {props?.trade?.amount?.toFixed(2) || 0}
+            {props.getKValue(props?.trade?.amount|| 0)}K
           </div>
         </div>
         <div className="leftsec__amount">
@@ -43,7 +43,7 @@ const TradeItem = (props) => {
             viewport={{once:true}}
           >
             {props.trade.loss ? "-" : "+"}
-            {props?.trade?.returnAmount?.toFixed(2) || 0}
+            {props.getKValue(props?.trade?.returnAmount|| 0)}K
           </motion.div>
         </div>
       </div>
