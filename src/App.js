@@ -139,7 +139,7 @@ function App() {
 
  const getKValue=(num)=>{
   if(+num<1000){
-    return num;
+    return num.toFixed(2);
   }
   if(+num>=1000){
     return (num/1000).toFixed(2)
@@ -181,21 +181,21 @@ function App() {
               animate={{ scale: mustScale ? 1.5 : 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 100 }}
             >
-              {getKValue(totProfit)}K
+              {getKValue(totProfit)}{totProfit>1000&&"K"}
             </motion.div>
             <motion.div
               className="Cap_head"
               animate={{ scale: mustScale ? 1.5 : 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 100 }}
             >
-              {getKValue(state?.initialCap)}K
+              {getKValue(state?.initialCap)}{state?.initialCap>1000&&"K"}
             </motion.div>
             <motion.div
               className="Cap_head"
               animate={{ scale: mustScale ? 1.5 : 1 }}
               transition={{ type: "spring", stiffness: 400, damping: 100 }}
             >
-              {getKValue(totLoss)}K
+              {getKValue(totLoss)}{totLoss>1000&&"K"}
             </motion.div>
           </div>
         )}
