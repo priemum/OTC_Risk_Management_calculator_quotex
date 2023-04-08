@@ -12,6 +12,7 @@ const FormContainer = (props) => {
 
   const handleInitialCapChange = (e) => {
     setData("initialCap", +e.target.value);
+    props.setStartingInitialCap(+e.target.value)
   };
   const handlePerReturn = (e) => {
     setData("perReturn", +e.target.value);
