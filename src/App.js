@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 
 function App() {
   const [state, setState] = useState(null);
+  const [startingInitialCap, setStartingInitialCap] = useState(null);
   const [show, setShow] = useState(true);
   const [formIsFilled, setFormIsFilled] = useState(false);
   const [trades, setTrades] = useState([]);
@@ -42,6 +43,22 @@ function App() {
     }
   },[trades])
 
+  // needs logical checks
+  // useEffect(()=>{
+  //   if(startingInitialCap){
+  //     let risk1 = startingInitialCap*0.071;
+  //     let risk2 = startingInitialCap*0.142;
+  //     let risk3 = startingInitialCap*0.284;
+  //     debugger
+  //     if(startingInitialCap && (totLoss>= risk1)){
+  //       alert("Your total loss has reached " + risk1.toFixed(2) + " for the day !!!");
+  //     }else if(startingInitialCap && (totLoss>= risk2)){
+  //       alert("Your total loss has reached " + risk2.toFixed(2) + " for the day !!!");
+  //     }else if(startingInitialCap && (totLoss>= risk3)){
+  //       alert("Your total loss has reached " + risk3.toFixed(2) + " for the day !!!");
+  //     }
+  //   }
+  // },[totLoss])
   useEffect(() => {
     if (!isPresent) {
       gsap.to(ref.current, {
@@ -170,6 +187,7 @@ function App() {
               state={state}
               setShow={setShow}
               show={show}
+              setStartingInitialCap={setStartingInitialCap}
               exit={{y:"50%",opacity:0,transition:{duration:"5s",ease:"easeOut"}}}
             />
           ) : null}
