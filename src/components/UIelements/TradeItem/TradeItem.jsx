@@ -11,6 +11,9 @@ const TradeItem = (props) => {
   //     ref.current.scrollIntoView();
   //   }
   // }, []);
+
+  let returnAmount = props.getKValue(props && props.trade && props.trade.returnAmount) || 0;
+  let tradeAmount = props.getKValue(props && props.trade && props.trade.amount)|| 0;
   return (
     <motion.div
       initial={{ opacity: 0, scale: 4 ,y:-300}}
@@ -24,7 +27,7 @@ const TradeItem = (props) => {
         <div className="leftsec__amount">
           <div className="title"> Trade Amount : </div>
           <div className="title amount">
-            {props.getKValue(props?.trade?.amount|| 0)}K
+            {tradeAmount}{props && props.trade && props.trade.amount>1000?"K":""}
           </div>
         </div>
         <div className="leftsec__amount">
@@ -43,7 +46,7 @@ const TradeItem = (props) => {
             viewport={{once:true}}
           >
             {props.trade.loss ? "-" : "+"}
-            {props.getKValue(props?.trade?.returnAmount|| 0)}K
+            {returnAmount}{props && props.trade && props.trade.returnAmount>1000?"K":""}
           </motion.div>
         </div>
       </div>
